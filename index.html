@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculateur Crochet MaC</title>
+
+<title>Calculateur de Prix Crochet MaC</title>
 
 <style>
+
 body{
-  font-family:Arial;
+  font-family:Arial,sans-serif;
   background:#f3f3f3;
   margin:0;
   padding:20px;
@@ -19,7 +21,6 @@ body{
   margin:auto;
 }
 
-/* HERO */
 .hero{
   background:#ffffff;
   padding:22px;
@@ -36,10 +37,9 @@ body{
   font-size:13px;
   color:#777;
   margin-top:8px;
-  line-height:1.5;
+  line-height:1.6;
 }
 
-/* SECTIONS */
 .section{
   background:#ffffff;
   margin-top:16px;
@@ -48,24 +48,30 @@ body{
   box-shadow:0 4px 10px rgba(0,0,0,0.03);
 }
 
-/* LABELS */
 label{
   font-weight:bold;
   display:block;
-  margin-top:12px;
+  margin-top:14px;
   margin-bottom:6px;
 }
 
-/* INPUTS */
-input,select,textarea{
+input,
+select,
+textarea{
   width:100%;
   padding:12px;
   border-radius:10px;
   border:1px solid #ddd;
   background:#fafafa;
+  box-sizing:border-box;
+  font-size:14px;
 }
 
-/* AIDE */
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
 .aide{
   font-size:11.5px;
   color:#888;
@@ -73,44 +79,95 @@ input,select,textarea{
   line-height:1.5;
 }
 
-/* RESULTAT HERO */
 #resultat{
-  background:#f8f8f8;
-  border:1px solid #e5e5e5;
-  padding:22px;
+  background:#f7f7f7;
+  border:1px solid #e4e4e4;
+  padding:24px;
   border-radius:18px;
   line-height:1.8;
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  box-shadow:0 10px 25px rgba(0,0,0,0.04);
 }
 
-/* BOUTONS */
+.resultat-titre{
+  font-size:16px;
+  font-weight:bold;
+  color:#444;
+  margin-bottom:10px;
+}
+
 button{
   width:100%;
-  padding:12px;
+  padding:13px;
   margin-top:10px;
   border:none;
   border-radius:10px;
   font-weight:bold;
   cursor:pointer;
+  font-size:14px;
 }
 
-.enregistrer{background:#444;color:#fff;}
-.telecharger{background:#666;color:#fff;}
-.partager{background:#25D366;color:#fff;}
-.feedback-btn{background:#555;color:#fff;}
+.enregistrer{
+  background:#555;
+  color:white;
+}
 
-/* LIENS */
+.telecharger{
+  background:#777;
+  color:white;
+}
+
+.partager{
+  background:#25D366;
+  color:white;
+}
+
+.feedback-btn{
+  background:#444;
+  color:white;
+}
+
+.card{
+  background:#fafafa;
+  border:1px solid #eee;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+}
+
+.small-section{
+  background:#ffffff;
+  margin-top:14px;
+  padding:14px;
+  border-radius:14px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.03);
+}
+
+.small-section h3{
+  font-size:14px;
+  margin-top:0;
+  margin-bottom:8px;
+  color:#444;
+}
+
+.small-section p{
+  font-size:12.5px;
+  color:#777;
+  line-height:1.5;
+}
+
 .lien{
   display:block;
   color:#25D366;
-  font-weight:600;
   text-decoration:none;
-  margin-top:6px;
+  font-size:13px;
+  font-weight:600;
+  margin-top:8px;
 }
 
 .lien:hover{
   text-decoration:underline;
 }
+
 </style>
 </head>
 
@@ -119,30 +176,61 @@ button{
 <div class="container">
 
 <!-- HERO -->
+
 <div class="hero">
+
 <h1>🧶 Calculateur de Prix Crochet MaC</h1>
-<p>Outil professionnel pour calculer vos prix de crochet avec précision et rentabilité.</p>
+
+<p>
+Outil professionnel conçu pour aider les crocheteurs à calculer des prix rentables, mieux valoriser leur temps et développer leur activité.
+</p>
+
 </div>
 
 <!-- FORMULAIRE -->
+
 <div class="section">
 
 <label>Devise</label>
-<select id="devise">
-  <option value="FCFA">FCFA - Franc CFA (Cameroun)</option>
-  <option value="$">$ Dollar</option>
-  <option value="€">€ Euro</option>
-  <option value="£">£ Livre</option>
-</select>
-<div class="aide">FCFA recommandé pour le Cameroun</div>
+
+<input
+type="text"
+id="devise"
+placeholder="Exemple : FCFA, $, €, £, CAD, XAF">
+
+<div class="aide">
+Exemples : FCFA (Cameroun), $ Dollar, € Euro, £ Livre Sterling
+</div>
 
 <label>Niveau</label>
+
 <select id="niveau">
-<option value="1000" data-text="Débutant">Débutant</option>
-<option value="1500" data-text="Novice">Novice</option>
-<option value="2500" data-text="Intermédiaire">Intermédiaire</option>
-<option value="3500" data-text="Avancé">Avancé</option>
-<option value="5000" data-text="Expert">Expert</option>
+
+<option value="1000"
+data-text="Débutant">
+Débutant
+</option>
+
+<option value="1500"
+data-text="Novice">
+Novice
+</option>
+
+<option value="2500"
+data-text="Intermédiaire">
+Intermédiaire
+</option>
+
+<option value="3500"
+data-text="Avancé">
+Avancé
+</option>
+
+<option value="5000"
+data-text="Expert">
+Expert
+</option>
+
 </select>
 
 <div class="aide" id="infoNiveau">
@@ -150,171 +238,443 @@ Débutant – 1000 recommandé
 </div>
 
 <label>Taux horaire</label>
-<input type="number" id="taux">
-<div class="aide">Valeur de votre heure de travail</div>
+
+<input
+type="number"
+id="taux"
+placeholder="Exemple : 1000">
+
+<div class="aide">
+Définissez combien vaut votre heure de travail
+</div>
 
 <label>Nom du produit</label>
-<input type="text" id="produit">
-<div class="aide">Ex : sac crochet, couverture bébé</div>
+
+<input
+type="text"
+id="produit"
+placeholder="Exemple : Sac crochet, couverture bébé">
+
+<div class="aide">
+Permet d’identifier et sauvegarder votre création
+</div>
 
 <label>Coût du fil</label>
-<input type="number" id="fil">
-<div class="aide">Coût total du fil utilisé</div>
+
+<input
+type="number"
+id="fil"
+placeholder="0">
+
+<div class="aide">
+Incluez le coût total du fil utilisé pour ce projet
+</div>
 
 <label>Autres matériaux</label>
-<input type="number" id="materiaux">
-<div class="aide">Perles, accessoires, emballage</div>
+
+<input
+type="number"
+id="materiaux"
+placeholder="0">
+
+<div class="aide">
+Perles, boutons, emballage, accessoires et décorations
+</div>
 
 <label>Heures travaillées</label>
-<input type="number" id="heures">
-<div class="aide">Temps total de réalisation</div>
+
+<input
+type="number"
+id="heures"
+placeholder="0">
+
+<div class="aide">
+Temps total passé à réaliser votre création
+</div>
 
 <label>Frais généraux (%)</label>
-<input type="number" id="frais" value="10">
-<div class="aide">Électricité, transport, outils, pertes</div>
+
+<input
+type="number"
+id="frais"
+value="10">
+
+<div class="aide">
+Transport, électricité, internet, outils et autres dépenses professionnelles
+</div>
 
 </div>
 
 <!-- RESULTAT -->
+
 <div class="section" id="resultat">
+
+<div class="resultat-titre">
+📊 Résultat du Calcul
+</div>
+
+<div class="aide" style="margin-bottom:12px;">
+Estimation automatique basée sur vos coûts et votre temps de travail
+</div>
+
 Entrez vos informations pour voir le résultat
+
 </div>
 
 <!-- ACTIONS -->
+
 <div class="section">
-<button class="enregistrer" onclick="sauvegarder()">Enregistrer</button>
-<button class="telecharger" onclick="telecharger()">Télécharger</button>
-<button class="partager" onclick="partager()">Partager</button>
+
+<div class="aide" style="margin-bottom:10px;">
+Enregistrez, téléchargez ou partagez votre calcul facilement
+</div>
+
+<button
+class="enregistrer"
+onclick="sauvegarder()">
+Enregistrer
+</button>
+
+<button
+class="telecharger"
+onclick="telecharger()">
+Télécharger le Résultat
+</button>
+
+<button
+class="partager"
+onclick="partager()">
+Partager sur WhatsApp
+</button>
+
+</div>
+
+<!-- HISTORIQUE -->
+
+<div class="section">
+
+<h3 style="margin-top:0;">📁 Produits Enregistrés</h3>
+
+<div class="aide">
+Retrouvez rapidement vos anciens calculs
+</div>
+
+<div id="historique"></div>
+
 </div>
 
 <!-- AVIS -->
-<div class="section small">
+
+<div class="small-section">
 
 <h3>💬 Avis et Améliorations</h3>
 
-<p>Partagez votre expérience et vos suggestions.</p>
+<p>
+Vos retours nous aident à améliorer cet outil pour les crocheteurs francophones.
+</p>
 
-<div class="aide">
-📧 Email :
-<a href="mailto:meetacrocheter@gmail.com" class="lien">
-meetacrocheter@gmail.com
-</a>
-</div>
+<textarea
+id="feedback"
+placeholder="Partagez votre expérience, vos idées ou les améliorations que vous aimeriez voir..."></textarea>
 
-<div class="aide">
-📱 WhatsApp :
-<a class="lien"
-href="https://wa.me/2348181661117?text=Bonjour%20je%20viens%20du%20calculateur%20de%20crochet"
-target="_blank">
-Envoyer un message WhatsApp
-</a>
-</div>
-
-<textarea id="feedback"></textarea>
-
-<button class="feedback-btn" onclick="envoyerWhatsApp()">
-Envoyer WhatsApp
+<button
+class="feedback-btn"
+onclick="envoyerWhatsApp()">
+Envoyer via WhatsApp
 </button>
 
-<button class="feedback-btn" onclick="envoyerEmail()">
-Envoyer Email
+<button
+class="feedback-btn"
+onclick="envoyerEmail()">
+Envoyer par Email
 </button>
 
 </div>
 
-<!-- COMMUNAUTÉ -->
-<div class="section small">
+<!-- COMMUNAUTE -->
+
+<div class="small-section">
 
 <h3>🌍 Communauté Crochet</h3>
 
-<p>Rejoignez d’autres entrepreneurs crochet.</p>
+<p>
+Rejoignez d’autres crocheteurs comme vous utilisant ce calculateur pour mieux fixer leurs prix et faire des profits.
+</p>
 
-<a class="lien" href="https://chat.whatsapp.com/FentWZJuEILI1gaTy7ptLz?mode=gi_t">
-👉 Groupe de discussion 1
+<a
+class="lien"
+href="https://chat.whatsapp.com/FentWZJuEILI1gaTy7ptLz?mode=gi_t"
+target="_blank">
+
+👉 Groupe de Discussion 1
+
 </a>
 
-<a class="lien" href="https://chat.whatsapp.com/HXjSSyMKk4YIKVWV3f1zFz?mode=gi_t">
-👉 Groupe de discussion 2
+<a
+class="lien"
+href="https://chat.whatsapp.com/HXjSSyMKk4YIKVWV3f1zFz?mode=gi_t"
+target="_blank">
+
+👉 Groupe de Discussion 2
+
 </a>
 
-<a class="lien" href="https://chat.whatsapp.com/IHrzah07YoC4BJIf8TKHpG?mode=gi_t">
+<a
+class="lien"
+href="https://chat.whatsapp.com/IHrzah07YoC4BJIf8TKHpG?mode=gi_t"
+target="_blank">
+
 👉 Entrepreneurs Crochet
+
 </a>
 
 </div>
 
 </div>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 <script>
 
-let result="";
+let historique = [];
+let resultatTexte = "";
+
+/* DEVISE */
 
 function devise(){
-return document.getElementById("devise").value;
+  return document.getElementById("devise").value || "FCFA";
 }
+
+/* NIVEAUX */
+
+const niveau = document.getElementById("niveau");
+const taux = document.getElementById("taux");
+const infoNiveau = document.getElementById("infoNiveau");
+
+niveau.addEventListener("change", function(){
+
+  let valeur = this.value;
+
+  let texte =
+  this.options[this.selectedIndex].dataset.text;
+
+  taux.value = valeur;
+
+  infoNiveau.innerText =
+  texte + " – " + valeur + " recommandé";
+
+  calculer();
+
+});
+
+/* CALCUL */
 
 function calculer(){
 
-let d=devise();
+  let d = devise();
 
-let fil=+document.getElementById("fil").value||0;
-let mat=+document.getElementById("materiaux").value||0;
-let h=+document.getElementById("heures").value||0;
-let t=+document.getElementById("taux").value||0;
-let f=+document.getElementById("frais").value||0;
-let n=document.getElementById("produit").value||"Produit";
+  let fil =
+  +document.getElementById("fil").value || 0;
 
-let cout=fil+mat;
-let main=h*t;
-let total=cout+main+(cout+main)*f/100;
+  let mat =
+  +document.getElementById("materiaux").value || 0;
 
-function p(x){return total*(1+x/100);}
+  let heures =
+  +document.getElementById("heures").value || 0;
 
-result=
-`🧶 RÉSULTAT - ${n}
+  let tauxHoraire =
+  +document.getElementById("taux").value || 0;
 
-Matériaux : ${d}${cout}
-Main d’œuvre : ${d}${main}
-Coût total : ${d}${total}
+  let frais =
+  +document.getElementById("frais").value || 0;
 
-⭐ RECOMMANDÉ (50%)
-👉 ${d}${p(50)}
+  let produit =
+  document.getElementById("produit").value ||
+  "Produit";
 
-30% → ${d}${p(30)}
-40% → ${d}${p(40)}
-60% → ${d}${p(60)}
-70% → ${d}${p(70)}`;
+  if(!fil && !mat && !heures && !tauxHoraire){
 
-document.getElementById("resultat").innerHTML=result.replace(/\n/g,"<br>");
+    document.getElementById("resultat").innerHTML = `
+    <div class="resultat-titre">
+    📊 Résultat du Calcul
+    </div>
+
+    <div class="aide" style="margin-bottom:12px;">
+    Estimation automatique basée sur vos coûts et votre temps de travail
+    </div>
+
+    Entrez vos informations pour voir le résultat
+    `;
+
+    return;
+  }
+
+  let coutMateriaux = fil + mat;
+
+  let mainOeuvre = heures * tauxHoraire;
+
+  let fraisGeneraux =
+  (coutMateriaux + mainOeuvre) * (frais / 100);
+
+  let total =
+  coutMateriaux + mainOeuvre + fraisGeneraux;
+
+  function prix(x){
+    return total * (1 + x / 100);
+  }
+
+  let grosMin = prix(50) * 0.4;
+  let grosMax = prix(50) * 0.5;
+
+resultatTexte =
+
+`🧶 RÉSULTAT - ${produit}
+
+Matériaux : ${d}${coutMateriaux.toFixed(2)}
+
+Main d’œuvre : ${d}${mainOeuvre.toFixed(2)}
+
+Frais généraux : ${d}${fraisGeneraux.toFixed(2)}
+
+Coût total : ${d}${total.toFixed(2)}
+
+⭐ PRIX DE VENTE
+
+30% → ${d}${prix(30).toFixed(2)}
+
+40% → ${d}${prix(40).toFixed(2)}
+
+🔥 RECOMMANDÉ (50%)
+
+👉 ${d}${prix(50).toFixed(2)}
+
+60% → ${d}${prix(60).toFixed(2)}
+
+70% → ${d}${prix(70).toFixed(2)}
+
+📦 FOURCHETTE GROS
+
+${d}${grosMin.toFixed(2)}
+-
+${d}${grosMax.toFixed(2)}`;
+
+document.getElementById("resultat").innerHTML =
+
+`
+<div class="resultat-titre">
+📊 Résultat du Calcul
+</div>
+
+<div class="aide" style="margin-bottom:12px;">
+Estimation automatique basée sur vos coûts et votre temps de travail
+</div>
+
+${resultatTexte.replace(/\n/g,"<br>")}
+`;
+
 }
 
-document.querySelectorAll("input,select").forEach(e=>{
-e.addEventListener("input",calculer);
+/* EVENEMENTS */
+
+document.querySelectorAll("input,select").forEach(el=>{
+  el.addEventListener("input", calculer);
 });
+
+/* SAUVEGARDE */
 
 function sauvegarder(){
-alert("Produit enregistré");
+
+  if(!resultatTexte){
+    alert("Veuillez effectuer un calcul");
+    return;
+  }
+
+  historique.push(resultatTexte);
+
+  afficherHistorique();
+
 }
+
+/* HISTORIQUE */
+
+function afficherHistorique(){
+
+  let html = "";
+
+  historique.forEach(item=>{
+
+    html += `
+    <div class="card">
+    ${item.replace(/\n/g,"<br>")}
+    </div>
+    `;
+
+  });
+
+  document.getElementById("historique").innerHTML = html;
+
+}
+
+/* TELECHARGER */
 
 function telecharger(){
-html2canvas(document.getElementById("resultat")).then(c=>{
-let a=document.createElement("a");
-a.download="resultat.png";
-a.href=c.toDataURL();
-a.click();
+
+html2canvas(
+document.getElementById("resultat")
+).then(canvas=>{
+
+let lien=document.createElement("a");
+
+lien.download="resultat-crochet.png";
+
+lien.href=canvas.toDataURL();
+
+lien.click();
+
 });
+
 }
+
+/* PARTAGER */
 
 function partager(){
-window.open("https://wa.me/?text="+encodeURIComponent(result));
+
+if(!resultatTexte){
+alert("Veuillez effectuer un calcul");
+return;
 }
 
+window.open(
+"https://wa.me/?text=" +
+encodeURIComponent(resultatTexte)
+);
+
+}
+
+/* FEEDBACK */
+
 function envoyerWhatsApp(){
-window.open("https://wa.me/?text="+encodeURIComponent(document.getElementById("feedback").value));
+
+let texte =
+document.getElementById("feedback").value;
+
+window.open(
+"https://wa.me/2348181661117?text=" +
+encodeURIComponent(texte)
+);
+
 }
 
 function envoyerEmail(){
-window.location.href="mailto:meetacrocheter@gmail.com?body="+encodeURIComponent(document.getElementById("feedback").value);
+
+let texte =
+document.getElementById("feedback").value;
+
+window.location.href =
+"mailto:meetacrocheter@gmail.com?subject=Avis Calculateur Crochet&body="
++
+encodeURIComponent(texte);
+
 }
 
 </script>
