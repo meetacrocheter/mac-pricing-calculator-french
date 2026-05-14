@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculateur Prix Crochet MaC</title>
+<title>Calculateur Crochet MaC</title>
 
 <style>
 body{
-  font-family:Arial, sans-serif;
+  font-family:Arial;
   background:#f3f3f3;
   margin:0;
   padding:20px;
@@ -27,16 +27,8 @@ body{
   box-shadow:0 6px 18px rgba(0,0,0,0.04);
 }
 
-.hero h1{
-  margin:0;
-  font-size:24px;
-}
-
-.hero p{
-  color:#777;
-  font-size:13px;
-  margin-top:8px;
-}
+.hero h1{margin:0;font-size:24px;}
+.hero p{color:#777;font-size:13px;line-height:1.5;margin-top:8px;}
 
 /* SECTIONS */
 .section{
@@ -47,7 +39,7 @@ body{
   box-shadow:0 4px 10px rgba(0,0,0,0.03);
 }
 
-/* LABELS */
+/* LABEL */
 label{
   font-weight:bold;
   display:block;
@@ -56,18 +48,12 @@ label{
 }
 
 /* INPUTS */
-input, select, textarea{
+input,select,textarea{
   width:100%;
   padding:12px;
   border-radius:10px;
   border:1px solid #ddd;
   background:#fafafa;
-}
-
-input:focus, select:focus, textarea:focus{
-  outline:none;
-  background:#fff;
-  border-color:#aaa;
 }
 
 /* HELP TEXT */
@@ -78,7 +64,7 @@ input:focus, select:focus, textarea:focus{
   line-height:1.5;
 }
 
-/* RESULT HERO */
+/* RESULT */
 #resultat{
   background:#f8f8f8;
   border:1px solid #e5e5e5;
@@ -86,20 +72,6 @@ input:focus, select:focus, textarea:focus{
   border-radius:18px;
   line-height:1.8;
   box-shadow:0 10px 25px rgba(0,0,0,0.05);
-}
-
-/* RECOMMANDATION */
-.recommandation{
-  background:#eeeeee;
-  border:1px solid #ddd;
-  padding:14px;
-  border-radius:14px;
-  text-align:center;
-  margin:12px 0;
-}
-
-.recommandation strong{
-  font-size:20px;
 }
 
 /* BUTTONS */
@@ -118,19 +90,17 @@ button{
 .partager{background:#25D366;color:#fff;}
 .feedback{background:#555;color:#fff;}
 
-/* SMALL TEXT */
-.petit{
+.small{
   font-size:12px;
   color:#777;
   line-height:1.5;
 }
 
-/* LINKS */
 a{
   display:block;
   margin-top:8px;
-  text-decoration:none;
   color:#444;
+  text-decoration:none;
   font-weight:600;
 }
 </style>
@@ -142,8 +112,8 @@ a{
 
 <!-- HERO -->
 <div class="hero">
-  <h1>🧶 Calculateur de Prix Crochet MaC</h1>
-  <p>Outil professionnel pour calculer vos prix de crochet facilement et avec précision</p>
+<h1>🧶 Calculateur de Prix Crochet MaC</h1>
+<p>Outil professionnel pour calculer vos prix de crochet avec précision et rentabilité.</p>
 </div>
 
 <!-- FORM -->
@@ -154,10 +124,12 @@ a{
   <option value="FCFA">FCFA - Franc CFA (Cameroun)</option>
   <option value="$">$ - Dollar</option>
   <option value="€">€ - Euro</option>
-  <option value="£">£ - Livre Sterling</option>
-  <option value="OTHER">Autre devise</option>
+  <option value="£">£ - Livre</option>
+  <option value="OTHER">Autre</option>
 </select>
-<div class="aide">Choisissez votre devise</div>
+<div class="aide">
+FCFA est la devise recommandée pour le Cameroun. Vous pouvez aussi choisir une devise internationale.
+</div>
 
 <label>Niveau</label>
 <select id="niveau">
@@ -167,31 +139,51 @@ a{
 <option value="3500" data-text="Avancé">Avancé</option>
 <option value="5000" data-text="Expert">Expert</option>
 </select>
-<div class="aide" id="infoNiveau"></div>
+<div class="aide" id="infoNiveau">
+Débutant – Recommandé : 1000 (prix de base conseillé)
+</div>
 
 <label>Taux horaire</label>
 <input type="number" id="taux">
+<div class="aide">
+Montant que vous gagnez par heure de travail (très important pour votre rentabilité)
+</div>
 
 <label>Nom du produit</label>
 <input type="text" id="produit">
+<div class="aide">
+Nom de votre création (ex: sac crochet, couverture bébé)
+</div>
 
 <label>Coût du fil</label>
 <input type="number" id="fil">
+<div class="aide">
+Prix total du fil utilisé pour ce projet
+</div>
 
 <label>Autres matériaux</label>
 <input type="number" id="materiaux">
+<div class="aide">
+Perles, accessoires, emballage, décorations
+</div>
 
-<label>Heures</label>
+<label>Heures travaillées</label>
 <input type="number" id="heures">
+<div class="aide">
+Temps total passé à réaliser le produit
+</div>
 
 <label>Frais généraux (%)</label>
 <input type="number" id="frais" value="10">
+<div class="aide">
+Électricité, transport, outils, perte de matériel
+</div>
 
 </div>
 
 <!-- RESULT -->
 <div class="section" id="resultat">
-Entrez vos données pour voir le résultat
+Entrez vos informations pour voir le résultat
 </div>
 
 <!-- ACTIONS -->
@@ -202,32 +194,30 @@ Entrez vos données pour voir le résultat
 </div>
 
 <!-- SAVED -->
-<div class="section">
+<div class="section small">
 <h3>Produits enregistrés</h3>
 <div id="historique"></div>
 </div>
 
 <!-- FEEDBACK -->
-<div class="section petit">
+<div class="section small">
 <h3>💬 Avis et Améliorations</h3>
 
-<p>
-Dites-nous comment ce calculateur aide votre activité crochet.
-</p>
+<p>Dites-nous comment ce calculateur aide votre activité crochet.</p>
 
 <div class="aide">
 📧 Email : meetacrocheter@gmail.com<br>
 📱 WhatsApp : https://wa.me/2348181661117
 </div>
 
-<textarea id="feedback" placeholder="Votre avis ici..."></textarea>
+<textarea id="feedback"></textarea>
 
 <button class="feedback" onclick="envoyerWhatsApp()">Envoyer WhatsApp</button>
 <button class="feedback" onclick="envoyerEmail()">Envoyer Email</button>
 </div>
 
 <!-- COMMUNITY -->
-<div class="section petit">
+<div class="section small">
 <h3>🌍 Communauté Crochet</h3>
 
 <p>Rejoignez d’autres entrepreneurs crochet.</p>
@@ -245,35 +235,35 @@ let saved=[];
 let result="";
 
 document.getElementById("niveau").addEventListener("change",function(){
-  document.getElementById("infoNiveau").innerText =
-  this.options[this.selectedIndex].dataset.text + " - " + this.value;
+document.getElementById("infoNiveau").innerText =
+this.options[this.selectedIndex].dataset.text + " – " + this.value;
 });
 
 function devise(){
-  return document.getElementById("devise").value;
+return document.getElementById("devise").value;
 }
 
 function calculer(){
-  let d=devise();
+let d=devise();
 
-  let fil=+document.getElementById("fil").value||0;
-  let mat=+document.getElementById("materiaux").value||0;
-  let h=+document.getElementById("heures").value||0;
-  let t=+document.getElementById("taux").value||0;
-  let f=+document.getElementById("frais").value||0;
-  let n=document.getElementById("produit").value||"Produit";
+let fil=+document.getElementById("fil").value||0;
+let mat=+document.getElementById("materiaux").value||0;
+let h=+document.getElementById("heures").value||0;
+let t=+document.getElementById("taux").value||0;
+let f=+document.getElementById("frais").value||0;
+let n=document.getElementById("produit").value||"Produit";
 
-  let cout=fil+mat;
-  let main=h*t;
-  let total=cout+main+(cout+main)*f/100;
+let cout=fil+mat;
+let main=h*t;
+let total=cout+main+(cout+main)*f/100;
 
-  function p(x){return total*(1+x/100);}
+function p(x){return total*(1+x/100);}
 
-  result=
+result=
 `🧶 RÉSULTAT - ${n}
 
 Matériaux : ${d}${cout}
-Main : ${d}${main}
+Main d’œuvre : ${d}${main}
 Total : ${d}${total}
 
 ⭐ RECOMMANDÉ (50%)
@@ -284,40 +274,40 @@ Total : ${d}${total}
 60%: ${d}${p(60)}
 70%: ${d}${p(70)}`;
 
-  document.getElementById("resultat").innerHTML=result.replace(/\n/g,"<br>");
+document.getElementById("resultat").innerHTML=result.replace(/\n/g,"<br>");
 }
 
 document.querySelectorAll("input,select").forEach(e=>{
-  e.addEventListener("input",calculer);
+e.addEventListener("input",calculer);
 });
 
 function sauvegarder(){
-  saved.push(result);
-  document.getElementById("historique").innerHTML=
-  saved.map(s=>`<div class="section petit">${s.replace(/\n/g,"<br>")}</div>`).join("");
+saved.push(result);
+document.getElementById("historique").innerHTML=
+saved.map(s=>`<div class="section small">${s.replace(/\n/g,"<br>")}</div>`).join("");
 }
 
 function telecharger(){
-  html2canvas(document.getElementById("resultat")).then(c=>{
-    let a=document.createElement("a");
-    a.download="resultat.png";
-    a.href=c.toDataURL();
-    a.click();
-  });
+html2canvas(document.getElementById("resultat")).then(c=>{
+let a=document.createElement("a");
+a.download="resultat.png";
+a.href=c.toDataURL();
+a.click();
+});
 }
 
 function partager(){
-  window.open("https://wa.me/?text="+encodeURIComponent(result));
+window.open("https://wa.me/?text="+encodeURIComponent(result));
 }
 
 function envoyerWhatsApp(){
-  window.open("https://wa.me/?text="+encodeURIComponent(document.getElementById("feedback").value));
+window.open("https://wa.me/?text="+encodeURIComponent(document.getElementById("feedback").value));
 }
 
 function envoyerEmail(){
-  window.location.href="mailto:meetacrocheter@gmail.com?body="+encodeURIComponent(document.getElementById("feedback").value);
+window.location.href="mailto:meetacrocheter@gmail.com?body="+encodeURIComponent(document.getElementById("feedback").value);
 }
 </script>
 
 </body>
-  </html>
+</html>
